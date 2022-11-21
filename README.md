@@ -1,24 +1,69 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Next Flavor
 
-First, run the development server:
+This is a tutorial project to learn a little bit more about Next.js builds.
+
+## Pre-requisite
 
 ```bash
-npm run dev
-# or
-yarn dev
+npm i
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+We'll work with production builds because dev builds are optimized for development speed and not for final performance (minification, code split, ...)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 1 - Webpack analyzer
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Build the project for production.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+npm build
+```
 
-## Learn More
+This will open the webpack analyzer for the client bundles. Typically we don't care about the server bundles because they are running locally.
+
+Go back to the build console and have a look at the output. Next.js already provides some information about the client bundles. Notice the `/` and `/404` pages (our only pages) and their size. Notice the bundles the are shared by all pages. The total size of each page is their own size plus the shared load.
+
+Go back the the webpack analyzer page and notice the different bundles. Explore a little bit to find out what the bundles actually contain.
+
+What is the largest JS dependency across all bundles? The second one?
+Find the bundle specific to our index page. What are the dependencies?
+Find the bundle specific to our 404 page.
+
+## 2 - Run the build
+
+```bash
+npm run start
+```
+
+Open http://localhost:3000 in incognito mode.
+
+Can you spot the usage of the largest dependency for this page only?
+
+## 3 - Run the lighthouse report
+
+Open the lighthouse tab in Chrome dev tools
+Generate a performance report.
+
+What is the performance score?
+
+## 4 - lodash
+
+Stop the server.
+Import lodash in the index page.
+
+```
+import lodash from "lodash";
+```
+
+Add a line where you use a lodash function in the render function.
+
+Build the app. Notice the bundle size in the console report. Find lodash in the webpack analyzer.
+Run the server and the lighthouse report. Do you notice any difference?
+
+Bonus exercise: fix the lodash import to minimize the bundle.
+
+# Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -26,9 +71,3 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
