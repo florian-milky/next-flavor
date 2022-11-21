@@ -1,7 +1,20 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
+const generateWebpackBundleReport = require("./config/generateWebpackBundleReport");
 
-module.exports = nextConfig
+const getWebpackConfig =
+  () =>
+  (config, { isServer, buildId }) => {
+    generateWebpackBundleReport({
+      config,
+      isServer,
+      buildId,
+    });
+
+    return config;
+  };
+
+/** @type {import('next').NextConfig} */
+const nextConfig = (phase) => ({
+  webpack: getWebpackConfig(phase),
+});
+
+module.exports = nextConfig;
