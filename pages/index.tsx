@@ -1,10 +1,11 @@
-import concat from "lodash/concat";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  const a = concat([], []);
+  import("lodash/concat").then((concatModule) => {
+    const a = concatModule.default([], []);
+  });
   return (
     <div className={styles.container}>
       <Head>
