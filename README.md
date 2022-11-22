@@ -26,8 +26,8 @@ Go back to the build console and have a look at the output. Next.js already prov
 
 Go back the the webpack analyzer page and notice the different bundles. Explore a little bit to find out what the bundles actually contain.
 
-What is the largest JS dependency across all bundles? The second one?
-Find the bundle specific to our index page. What are the dependencies?
+What is the largest JS dependency across all bundles? The second one?  
+Find the bundle specific to our index page. What are the dependencies?  
 Find the bundle specific to our 404 page.
 
 ## 2 - Run the build
@@ -42,14 +42,14 @@ Can you spot the usage of the largest dependency for this page only?
 
 ## 3 - Run the lighthouse report
 
-Open the lighthouse tab in Chrome dev tools
+Open the lighthouse tab in Chrome dev tools.  
 Generate a performance report.
 
 What is the performance score?
 
 ## 4 - lodash
 
-Stop the server.
+Stop the server.  
 Import lodash in the index page.
 
 ```
@@ -58,12 +58,22 @@ import lodash from "lodash";
 
 Add a line where you use a lodash function in the render function.
 
-Build the app. Notice the bundle size in the console report. Find lodash in the webpack analyzer.
+Build the app. Notice the bundle size in the console report. Find lodash in the webpack analyzer.  
 Run the server and the lighthouse report. Do you notice any difference?
 
 Bonus exercise: fix the lodash import to minimize the bundle.
 
-## 5 - getServerSideProps
+## 5 - code splitting
+
+Dynamically import lodash in the render function using Webpack. See [Docs](https://webpack.js.org/guides/code-splitting/#dynamic-imports).  
+Build the app.
+
+Can you find the dedicated bundle for lodash in the analyzer?
+
+Run the app and open the network tab.  
+Can you see the request for the lodash code?
+
+## 6 - getServerSideProps
 
 In the index page, add a `getServerSideProps` export and move your lodash function from the rendering to that function. Return the result of your lodash function as props:
 
@@ -75,11 +85,11 @@ In the index page, add a `getServerSideProps` export and move your lodash functi
   }
 ```
 
-Run the build again. What do you notice?
-Run the server and open the page. Inspect the html and find the JSON script with the id `__NEXT_DATA__`.
+Run the build again. What do you notice?  
+Run the server and open the page. Inspect the html and find the JSON script with the id `__NEXT_DATA__`.  
 Notice you can find your props there.
 
-Go to https://json-generator.com/ and generate some big props! Return those in the `getServerSideProps`.
+Go to https://json-generator.com/ and generate some big props! Return those in the `getServerSideProps`.  
 Inspect the JSON script, also check the size of the HTML request in the network tab, and run the lighthouse performance.
 
 # Learn More
