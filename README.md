@@ -63,6 +63,25 @@ Run the server and the lighthouse report. Do you notice any difference?
 
 Bonus exercise: fix the lodash import to minimize the bundle.
 
+## 5 - getServerSideProps
+
+In the index page, add a `getServerSideProps` export and move your lodash function from the rendering to that function. Return the result of your lodash function as props:
+
+```
+  {
+    props: {
+      yourProp: theResult,
+    },
+  }
+```
+
+Run the build again. What do you notice?
+Run the server and open the page. Inspect the html and find the JSON script with the id `__NEXT_DATA__`.
+Notice you can find your props there.
+
+Go to https://json-generator.com/ and generate some big props! Return those in the `getServerSideProps`.
+Inspect the JSON script, also check the size of the HTML request in the network tab, and run the lighthouse performance.
+
 # Learn More
 
 To learn more about Next.js, take a look at the following resources:
