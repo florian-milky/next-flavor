@@ -50,6 +50,12 @@ What is the performance score?
 ## 4 - lodash
 
 Stop the server.  
+Install lodash.
+
+```
+npm i lodash @types/lodash
+```
+
 Import lodash in the index page.
 
 ```
@@ -97,6 +103,12 @@ Go to https://json-generator.com/ and generate some big props! Return those in t
 Inspect the JSON script, also check the size of the HTML request in the network tab, and run the lighthouse performance.
 
 > Example implementation in the `getServerSideProps` branch.
+
+## Going beyond
+
+Try the same tutorial with the new `app` directory.  
+Use the `main-app` branch to get started and implementations are in other `*-app` branches.  
+Good luck!
 
 # Learn More
 
