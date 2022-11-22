@@ -15,6 +15,9 @@ const getWebpackConfig =
 /** @type {import('next').NextConfig} */
 const nextConfig = (phase) => ({
   webpack: getWebpackConfig(phase),
+  experimental: {
+    appDir: true,
+  },
 });
 
 module.exports = nextConfig;
