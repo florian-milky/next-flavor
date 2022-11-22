@@ -63,6 +63,8 @@ Run the server and the lighthouse report. Do you notice any difference?
 
 Bonus exercise: fix the lodash import to minimize the bundle.
 
+> Example implementation in the `lodash` branch.
+
 ## 5 - code splitting
 
 Dynamically import lodash in the render function using Webpack. See [Docs](https://webpack.js.org/guides/code-splitting/#dynamic-imports).  
@@ -72,6 +74,8 @@ Can you find the dedicated bundle for lodash in the analyzer?
 
 Run the app and open the network tab.  
 Can you see the request for the lodash code?
+
+> Example implementation in the `code-split` branch.
 
 ## 6 - getServerSideProps
 
@@ -91,6 +95,8 @@ Notice you can find your props there.
 
 Go to https://json-generator.com/ and generate some big props! Return those in the `getServerSideProps`.  
 Inspect the JSON script, also check the size of the HTML request in the network tab, and run the lighthouse performance.
+
+> Example implementation in the `getServerSideProps` branch.
 
 # Learn More
 
