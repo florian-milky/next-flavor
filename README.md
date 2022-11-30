@@ -17,7 +17,7 @@ We'll work with production builds because dev builds are optimized for developme
 Build the project for production.
 
 ```bash
-npm build
+npm run build
 ```
 
 This will open the webpack analyzer for the client bundles. Typically we don't care about the server bundles because they are running locally.
