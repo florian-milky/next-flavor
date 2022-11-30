@@ -106,7 +106,7 @@ Inspect the JSON script, also check the size of the HTML request in the network 
 
 ## Going beyond
 
-Try the same tutorial with the new `app` directory.  
+Try the same tutorial with [the new `app` directory](https://beta.nextjs.org/docs/getting-started).  
 Use the `main-app` branch to get started and implementations are in other `*-app` branches.  
 Good luck!
 
