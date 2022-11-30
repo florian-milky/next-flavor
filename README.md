@@ -99,7 +99,8 @@ Run the build again. What do you notice?
 Run the server and open the page. Inspect the html and find the JSON script with the id `__NEXT_DATA__`.  
 Notice you can find your props there.
 
-Go to https://json-generator.com/ and generate some big props! Return those in the `getServerSideProps`.  
+Go to https://json-generator.com/ and generate some big props! Don't be shy you really need A LOT!  
+Return those in the `getServerSideProps`.  
 Inspect the JSON script, also check the size of the HTML request in the network tab, and run the lighthouse performance.
 
 > Example implementation in the `getServerSideProps` branch.
